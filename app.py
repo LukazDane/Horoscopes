@@ -39,9 +39,9 @@ def get_horscope():
     name = request.args.get('name')
     num_horscopes = int(request.args.get('num_horscopes'))
     show_horscopes = request.args.get('show_horscopes')
-    nice_things = ', '.join(sample(horscopes, num_horscopes))
+    your_horoscope = ', '.join(sample(horscopes, num_horscopes))
 
     if show_horscopes:
-        return f'Hello there, {name}! {nice_things}!'
+        return f'Hello there, {name}, your Horoscope says: {your_horoscope}!'
     else:
         return f'Hello there, {name}! Have a nice day!'
