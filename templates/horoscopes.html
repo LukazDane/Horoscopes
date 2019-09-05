@@ -1,0 +1,10 @@
+{% extends 'base.html' %} {% block title %} Receive Horoscopes! {% endblock %}
+{% block content %} {% if get_horoscopes %}
+<ul>
+  <li>The stars have spoken...</li>
+  {% for horoscope in horoscopes %}
+  <li>{{ horoscope }}</li>
+
+  {% endfor %}
+</ul>
+{% else %} The stars take no notice of you... {% endif %} {% endblock %}
