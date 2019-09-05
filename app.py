@@ -1,4 +1,4 @@
-from flask import Flask, request
+from flask import Flask, request, render_template
 from random import choice, sample
 
 app = Flask(__name__)
@@ -10,27 +10,7 @@ horscopes = ["Virgo: Go see a movie today. It’s a great escape! Especially fro
 @app.route('/')
 def index():
     "Show the homepage and ask the user's name."
-    return """
-    <form action='/horscope'>
-        <p>
-            What is your name?
-            <input type="text" name="name"/>
-        </p>
-        <p>
-            <input type="checkbox" name="show_horscopes"/>
-            Show Compliments
-        </p>
-        <p>
-            How many horscopes?
-            <select name="num_horscopes">
-                <option value="1">One</option>
-                <option value="2">Two</option>
-                <option value="3">Three</option>
-            </select>
-        </p>
-        <input type="submit">
-    </form>
-    """
+    return render_template('index.html')
 
 
 @app.route('/horscope')
